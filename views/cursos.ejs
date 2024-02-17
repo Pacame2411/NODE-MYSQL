@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Cursos</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+    .volver-inicio {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Listado de Cursos</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de Importación</th>
+          <th>Nivel</th>
+          <th>Descripción</th>
+          <th>Lugar</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cursos.forEach(curso => { %>
+          <tr>
+            <td><%= curso.nombre %></td>
+            <td><%= curso.fecha_importacion.toISOString().split('T')[0] %></td>
+            <td><%= curso.nivel %></td>
+            <td><%= curso.descripcion %></td>
+            <td><%= curso.lugar %></td>
+            <td>
+              <a href="/editar-curso/<%= curso.id %>">Editar</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <a class="volver-inicio" href="/">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+
+  </div>
+</body>
+</html>

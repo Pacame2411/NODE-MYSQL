@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Centros</title>
+  <style>
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.centro {
+  border: 1px solid #ccc; /* Añade un borde */
+  border-radius: 5px; /* Borde redondeado */
+  padding: 10px; /* Espacio alrededor del contenido */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+.centro-info {
+  margin-bottom: 5px;
+}
+
+.centro-info span {
+  font-weight: bold;
+}
+
+.volver-inicio {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.volver-inicio:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Listado de Centros</h1>
+    <% centros.forEach(centro => { %>
+      <div class="centro"> <!-- Contenedor del centro -->
+        <div class="centro-info"> <!-- Información del centro -->
+          <strong><%= centro.nombre %></strong><br>
+          <span>Cursos: <%= centro.cursos_ofrecidos %></span><br>
+          <span>Dirección: <%= centro.direccion %></span><br>
+          <span>Teléfono: <%= centro.telefono %></span><br>
+          <span>Email: <%= centro.correo_electronico %></span>
+        </div>
+      </div>
+    <% }) %>
+    <a class="volver-inicio" href="/">Volver al Inicio</a>
+  </div>
+  
+</body>
+</html>

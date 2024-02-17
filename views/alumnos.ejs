@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Alumnos</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Estilos para la lista de alumnos */
+    .alumno {
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .alumno-info {
+      margin-bottom: 5px;
+    }
+
+    .alumno-info span {
+      font-weight: bold;
+    }
+
+    .agregar-alumno {
+      display: block;
+      text-align: center;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .agregar-alumno:hover {
+      background-color: #45a049;
+    }
+
+    .volver-inicio {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Listado de Alumnos</h1>
+    <ul>
+      <% alumnos.forEach(alumno => { %>
+        <li class="alumno">
+          <div class="alumno-info">
+            <span>Nombre:</span> <%= alumno.nombre %><br>
+            <span>DNI:</span> <%= alumno.dni %><br>
+            <span>Curso:</span> <%= alumno.curso_nombre %><br>
+            <span>Nota Media:</span> <%= alumno.nota_media %><br>
+            <span>Fecha de Nacimiento:</span> <%= alumno.fecha_nacimiento.toDateString() %>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+    <a class="agregar-alumno" href="/agregar-alumno">Agregar Alumno</a>
+    <a class="volver-inicio" href="/">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Curso</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .volver-inicio {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Editar Curso</h1>
+    <form action="/actualizar-curso/<%= curso.id %>" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" value="<%= curso.nombre %>" required><br>
+
+      <label for="fecha_importacion">Fecha de Importación:</label>
+      <input type="date" id="fecha_importacion" name="fecha_importacion" value="<%= curso.fecha_importacion.toISOString().split('T')[0] %>" required><br>
+
+      <label for="nivel">Nivel:</label>
+      <input type="text" id="nivel" name="nivel" value="<%= curso.nivel %>"><br>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion"><%= curso.descripcion %></textarea><br>
+
+      <label for="lugar">Lugar:</label>
+      <input type="text" id="lugar" name="lugar" value="<%= curso.lugar %>"><br>
+
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
+  <a class="volver-inicio" href="/">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+
+</body>
+</html>

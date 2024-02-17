@@ -1,0 +1,102 @@
+
+<head>
+<title> AGREGAR Alumno</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="date"] {
+    width: calc(100% - 22px); /* Subtract 22px for padding */
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.volver-inicio {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+</style>
+</head>
+<body>
+  
+<h1>Agregar Alumno</h1>
+<form action="/alumnos/agregar" method="post">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required><br>
+
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" name="dni" required><br>
+
+  <label for="nota_media">Nota Media:</label>
+  <input type="number" step="0.01" id="nota_media" name="nota_media" required><br>
+
+  <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+  <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
+
+  <label for="curso_id">Curso:</label>
+  <select id="curso_id" name="curso_id" required>
+    <% cursos.forEach(curso => { %>
+      <option value="<%= curso.id %>"><%= curso.nombre %></option>
+    <% }) %>
+  </select><br>
+
+  <button type="submit">Agregar</button>
+  <a class="volver-inicio" href="/">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+
+</form>
+</body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfica de Notas Medias por Curso</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+.volver-inicio {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Notas Medias por Curso</h1>
+  <canvas id="graficaCursos" width="800" height="400"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctx = document.getElementById('graficaCursos').getContext('2d');
+      const cursos = ['Historia', 'Ciencias naturales', 'Programación', 'Arte', 'Economía', 'Física', 'Química', 'Filosofía', 'Música'];
+      const notasMedias = [6.4, 7.5, 6.5, 9.2, 8, 7.8, 6.7, 8.5, 9];
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: cursos,
+          datasets: [{
+            label: 'Nota Media Promedio',
+            data: notasMedias,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              suggestedMax: 10 // Asume que la nota máxima es 10
+            }
+          }
+        }
+      });
+    });
+  </script>
+    <a class="volver-inicio" href="/">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+
+</body>
+</html>
